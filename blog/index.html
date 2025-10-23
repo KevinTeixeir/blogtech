@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1426383923638431"
+     crossorigin="anonymous"></script>
+    <title>TechBlog- Tecnologia e Inovação</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #f8f9fa;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+         .navativo {
+            
+            font-weight: 700;
+            background: #2c3e50;
+            border-radius: 30%;
+            
+        }
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+        }
+
+        /* Articles Section */
+        .articles {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 1.5rem;
+        }
+
+        .article-category {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #1a1a1a;
+        }
+
+        .article-excerpt {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .read-more {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: #764ba2;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .widget-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Ad Space */
+        .ad-space {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #667eea;
+        }
+
+        .ad-space h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .ad-space p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Newsletter */
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .newsletter-form input {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .newsletter-form button:hover {
+            transform: scale(1.02);
+        }
+
+        /* Categories */
+        .categories-list {
+            list-style: none;
+        }
+
+        .categories-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .categories-list li:last-child {
+            border-bottom: none;
+        }
+
+        .categories-list a {
+            color: #666;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            transition: color 0.3s;
+        }
+
+        .categories-list a:hover {
+            color: #667eea;
+        }
+
+        /* Popular Posts */
+        .popular-post {
+            display: flex;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .popular-post:last-child {
+            border-bottom: none;
+        }
+
+        .popular-post img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .popular-post-content h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+            color: #1a1a1a;
+        }
+
+        .popular-post-content p {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #667eea;
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .article-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">TechBlog</a>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li class="navativo"><a href="index.html">Início</a></li>
+                <li><a href="technology.html">Tecnologia</a></li>
+                <li><a href="programming.html">Programação</a></li>
+                <li><a href="design.html">Design</a></li>
+                <li><a href="contact.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main class="articles">
+            <article class="article-card">
+                <img src="https://base.digital/images/wz2qzed1/site-prod/38282d55f27b11ff87bc450cd41a54d9de74e8bc-3840x2400.jpg/Capa.jpg?w=2032&fm=webp&q=85" alt="Artigo 1" class="article-image">
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">Tecnologia</span>
+                        <span>10 de Janeiro, 2025</span>
+                   
+                  </div>
+                    <h2 class="article-title">O Futuro da Inteligência Artificial em 2025</h2>
+                    <p class="article-excerpt">
+                        Descubra as principais tendências e inovações que estão moldando o futuro da IA. 
+                        Desde machine learning até redes neurais avançadas, explore como a tecnologia está transformando nosso mundo.
+                    </p>
+                    <a href="post.html" class="read-more">Ler mais →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <img src="https://www.godaddy.com/resources/br/wp-content/uploads/sites/5/2024/12/o-que-e-javascript-1.webp" alt="Artigo 2" class="article-image">
+                <div class="article-content">
+                    <div class="article-meta">
+                    <span class="article-category">Programação</span>
+                    <span>10 de Janeiro, 2025</span>
+                   
+                    </div>
+                    <h2 class="article-title">Guia Completo de JavaScript Moderno</h2>
+                    <p class="article-excerpt">
+                        Aprenda as melhores práticas e recursos mais recentes do JavaScript. 
+                        Este guia abrangente cobre desde o básico até conceitos avançados como async/await e módulos ES6.
+                    </p>
+                    <a href="post.html" class="read-more">Ler mais →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <img src="https://www.uxdesigninstitute.com/blog/wp-content/uploads/2024/11/101_UX_vs_UI_illustration_blog-1.png" alt="Artigo 3" class="article-image">
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">Design</span>
+                        <span>10 de Janeiro, 2025</span>
+                     
+                    </div>
+                    <h2 class="article-title">Princípios de UX Design para 2025</h2>
+                    <p class="article-excerpt">
+                        Explore os princípios fundamentais de design de experiência do usuário que todo designer deve conhecer. 
+                        Aprenda a criar interfaces intuitivas e acessíveis.
+                    </p>
+                    <a href="post.html" class="read-more">Ler mais →</a>
+                </div>
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            <!-- Ad Space 1 -->
+            <div class="sidebar-widget">
+                <div class="ad-space">
+                    <h3>📢 Espaço Publicitário</h3>
+                    <p>300 x 250 pixels</p>
+                    <p style="margin-top: 1rem; font-size: 0.85rem;"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1426383923638431"
+     crossorigin="anonymous"></script></p>
+                </div>
+            </div>
+
+            <!-- Ad Space 2 -->
+ 
+            <!-- Popular Posts -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">🔥 Posts Populares</h3>
+                <div class="popular-post">
+                    <div class="popular-post-content">
+                        <h4>10 Ferramentas Essenciais para Desenvolvedores</h4>
+                        <p>8 de Janeiro, 2025</p>
+                    </div>
+                </div>
+                <div class="popular-post">
+                    <div class="popular-post-content">
+                        <h4>Como Aprender Python em 30 Dias</h4>
+                        <p>5 de Janeiro, 2025</p>
+                    </div>
+                </div>
+                <div class="sidebar-widget">
+                <div class="ad-space">
+                    <h3>📢 Espaço Publicitário</h3>
+                    <p>300 x 250 pixels</p>
+                    <p style="margin-top: 1rem; font-size: 0.85rem;">Adicione seu código de anúncio aqui</p>
+                </div>
+            </div>
+
+                <div class="popular-post">
+                    <div class="popular-post-content">
+                        <h4>Tendências de Design Web para 2025</h4>
+                        <p>3 de Janeiro, 2025</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">📁 Categorias</h3>
+                <ul class="categories-list">
+                    <li><a href="technology.html"><span>Tecnologia</span><span>(24)</span></a></li>
+                    <li><a href="programming.html"><span>Programação</span><span>(18)</span></a></li>
+                    <li><a href="design.html"><span>Design</span><span>(15)</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Ad Space 3 -->
+            <div class="sidebar-widget">
+                <div class="ad-space">
+                    <h3>📢 Espaço Publicitário</h3>
+                    <p>300 x 250 pixels</p>
+                    <p style="margin-top: 1rem; font-size: 0.85rem;"></p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+ 
+    <footer>
+        <p>&copy; 2025 TechBlog. Todos os direitos reservados.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Desenvolvido com ❤️ para compartilhar conhecimento</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+            <a href="ads-policy.html" style="color: #667eea; text-decoration: none;">Política de Anúncios</a>
+        </p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function handleNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input').value;
+            alert(`Obrigado por se inscrever! Confirme seu email: ${email}`);
+            event.target.reset();
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.article-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s, transform 0.6s';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

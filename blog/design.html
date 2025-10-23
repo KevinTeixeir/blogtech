@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design - BlogTech</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+          .navativo {
+            
+            font-weight: 700;
+            background: #2c3e50;
+            border-radius: 30%;
+            
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+        }
+
+        .category-header {
+            grid-column: 1 / -1;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+
+        .category-header h1 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 1.5rem;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .category-tag {
+            background: #e74c3c;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .article-content h2 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .article-content h2 a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .article-content h2 a:hover {
+            color: #667eea;
+        }
+
+        .article-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: #764ba2;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .sidebar-widget h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .ad-space {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            color: #666;
+            font-weight: 600;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .popular-posts {
+            list-style: none;
+        }
+
+        .popular-posts li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .popular-posts li:last-child {
+            border-bottom: none;
+        }
+
+        .popular-posts a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .popular-posts a:hover {
+            color: #667eea;
+        }
+
+        .categories-list {
+            list-style: none;
+        }
+
+        .categories-list li {
+            padding: 0.5rem 0;
+        }
+
+        .categories-list a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .categories-list a:hover {
+            color: #667eea;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #667eea;
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .category-header {
+                padding: 1.5rem;
+            }
+
+            .category-header h1 {
+                font-size: 2rem;
+            }
+
+            .sidebar {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">BlogTech</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="technology.html">Tecnologia</a></li>
+                <li><a href="programming.html">Programação</a></li>
+                <li><a href="categories.html">Categorias</a></li>
+                <li><a href="about.html">Sobre</a></li>
+                <li class="navativo"><a href="design.html">Design</a></li>
+                <li><a href="contact.html">Contato</a></li>
+
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="category-header">
+            <h1>Design</h1>
+            <p>Inspiração, tendências e melhores práticas de design</p>
+        </div>
+
+        <main class="main-content">
+            <article class="article-card">
+                <img src="https://www.uxdesigninstitute.com/blog/wp-content/uploads/2024/11/101_UX_vs_UI_illustration_blog-1.png" alt="UI/UX" class="article-image">
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="category-tag">Design</span>
+                        <span>13 de Maio, 2024</span>
+                    </div>
+                    <h2><a href="post.html">Princípios de UI/UX Design</a></h2>
+                    <p>Descubra os fundamentos do design de interfaces. Hierarquia visual, espaçamento, tipografia e como criar experiências intuitivas para os usuários.</p>
+                    <a href="post.html" class="read-more">Ler mais →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <img src="https://blog.thenounproject.com/wp-content/uploads/2023/04/figma-design-systems.png" alt="Design System" class="article-image">
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="category-tag">Design</span>
+                        <span>10 de Maio, 2024</span>
+                    </div>
+                    <h2><a href="post.html">Design System: Melhores Práticas</a></h2>
+                    <p>Como criar e manter um design system escalável. Tokens, componentes, documentação e colaboração entre design e desenvolvimento.</p>
+                    <a href="post.html" class="read-more">Ler mais →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <img src="https://wptavern.com/wp-content/uploads/2018/11/Screen-Shot-2018-11-19-at-8.43.27-PM.png" alt="Figma" class="article-image">
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="category-tag">Design</span>
+                        <span>8 de Maio, 2024</span>
+                    </div>
+                    <h2><a href="post.html">Dominando o Figma em 2024</a></h2>
+                    <p>Técnicas avançadas de Figma: auto-layout, variantes, componentes e plugins essenciais para aumentar sua produtividade no design.</p>
+                    <a href="post.html" class="read-more">Ler mais →</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <img src="https://static.significados.com.br/foto/color-455365-1920.png?width=1024" alt="Cores" class="article-image">
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="category-tag">Design</span>
+                        <span>6 de Maio, 2024</span>
+                    </div>
+                    <h2><a href="post.html">Teoria das Cores no Design Digital</a></h2>
+                    <p>Aprenda a criar paletas de cores harmoniosas e acessíveis. Psicologia das cores, contraste e como escolher cores para sua marca.</p>
+                    <a href="post.html" class="read-more">Ler mais →</a>
+                </div>
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            <div class="sidebar-widget ad-space">
+                Espaço para Anúncio<br>300 x 250
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Posts Populares</h3>
+                <ul class="popular-posts">
+                    <li><a href="post.html">Design System: Melhores Práticas</a></li>
+                    <li><a href="post.html">Princípios de UI/UX Design</a></li>
+                    <li><a href="post.html">Dominando o Figma em 2024</a></li>
+                    <li><a href="post.html">Teoria das Cores no Design Digital</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget ad-space">
+                Espaço para Anúncio<br>300 x 250
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Categorias</h3>
+                <ul class="categories-list">
+                    <li><a href="technology.html">Tecnologia <span>(12)</span></a></li>
+                    <li><a href="programming.html">Programação <span>(18)</span></a></li>
+                    <li><a href="design.html">Design <span>(9)</span></a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget ad-space">
+                Espaço para Anúncio<br>300 x 250
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 TechBlog. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

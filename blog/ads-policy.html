@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Anúncios - TechBlog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+          .navativo {
+            
+            font-weight: 700;
+            background: #2c3e50;
+            border-radius: 30%;
+            
+        }
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            transition: 0.3s;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .policy-container {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .policy-container h1 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .last-updated {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .policy-container h2 {
+            color: #764ba2;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .policy-container h3 {
+            color: #667eea;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .policy-container p {
+            margin-bottom: 1rem;
+            color: #555;
+            text-align: justify;
+        }
+
+        .policy-container ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .policy-container li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .highlight-box {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #666;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #ddd;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .policy-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .policy-container h1 {
+                font-size: 2rem;
+            }
+
+            .policy-container h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">TechBlog</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="categories.html">Categorias</a></li>
+                <li><a href="about.html">Sobre</a></li>
+                <li class="navativo"><a href="contact.html">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="policy-container">
+            <h1>Política de Anúncios</h1>
+            <p class="last-updated">Última atualização: Outubro de 2025</p>
+
+            <div class="highlight-box">
+                <p><strong>Transparência é importante para nós.</strong> Esta página explica como utilizamos anúncios em nosso site e como eles podem afetar sua experiência de navegação.</p>
+            </div>
+
+            <h2>1. Sobre os Anúncios</h2>
+            <p>O TechBlog exibe anúncios como forma de manter o site gratuito e acessível para todos os nossos leitores. Os anúncios nos ajudam a cobrir custos de hospedagem, manutenção e produção de conteúdo de qualidade.</p>
+
+            <h2>2. Tipos de Anúncios</h2>
+            <p>Utilizamos diferentes formatos de anúncios em nosso site:</p>
+            <ul>
+                <li><strong>Anúncios Display:</strong> Banners e imagens publicitárias exibidos na sidebar e entre conteúdos</li>
+                <li><strong>Anúncios de Texto:</strong> Links patrocinados relacionados ao conteúdo da página</li>
+                <li><strong>Anúncios Nativos:</strong> Conteúdo patrocinado integrado ao design do site</li>
+                <li><strong>Anúncios em Vídeo:</strong> Conteúdo publicitário em formato de vídeo (quando aplicável)</li>
+            </ul>
+
+            <h2>3. Plataformas de Anúncios</h2>
+            <p>Trabalhamos com plataformas de publicidade respeitáveis, incluindo:</p>
+            <ul>
+                <li>Google AdSense</li>
+                <li>Redes de anúncios certificadas</li>
+                <li>Anunciantes diretos verificados</li>
+            </ul>
+
+            <h3>3.1 Google AdSense</h3>
+            <p>Utilizamos o Google AdSense para exibir anúncios personalizados. O Google pode usar cookies e tecnologias semelhantes para:</p>
+            <ul>
+                <li>Exibir anúncios relevantes baseados em seus interesses</li>
+                <li>Medir a eficácia dos anúncios</li>
+                <li>Evitar que você veja o mesmo anúncio repetidamente</li>
+            </ul>
+
+            <h2>4. Cookies e Rastreamento</h2>
+            <p>Os anúncios em nosso site podem usar cookies e tecnologias de rastreamento para:</p>
+            <ul>
+                <li>Personalizar anúncios com base em suas visitas anteriores</li>
+                <li>Medir o desempenho das campanhas publicitárias</li>
+                <li>Evitar fraudes e abusos</li>
+                <li>Fornecer relatórios agregados aos anunciantes</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>Controle sua privacidade:</strong> Você pode gerenciar suas preferências de anúncios visitando as <a href="https://www.google.com/settings/ads" target="_blank" style="color: #667eea;">Configurações de Anúncios do Google</a> ou optando por não participar através da <a href="http://www.aboutads.info/choices/" target="_blank" style="color: #667eea;">Digital Advertising Alliance</a>.</p>
+            </div>
+
+            <h2>5. Anúncios de Terceiros</h2>
+            <p>Alguns anúncios são fornecidos por redes de terceiros. Essas empresas podem coletar informações sobre suas visitas a este e outros sites para fornecer anúncios relevantes. Não temos controle sobre os cookies de terceiros.</p>
+
+            <h2>6. Conteúdo Patrocinado</h2>
+            <p>Ocasionalmente, publicamos conteúdo patrocinado ou posts promocionais. Estes serão claramente identificados com etiquetas como:</p>
+            <ul>
+                <li>"Conteúdo Patrocinado"</li>
+                <li>"Post Promocional"</li>
+                <li>"Em Parceria com [Nome da Marca]"</li>
+            </ul>
+
+            <h2>7. Política de Conteúdo Publicitário</h2>
+            <p>Mantemos padrões rigorosos para os anúncios exibidos em nosso site. Não permitimos:</p>
+            <ul>
+                <li>Anúncios enganosos ou fraudulentos</li>
+                <li>Conteúdo adulto ou inadequado</li>
+                <li>Produtos ilegais ou perigosos</li>
+                <li>Malware ou software malicioso</li>
+                <li>Anúncios que violem direitos autorais</li>
+            </ul>
+
+            <h2>8. Bloqueadores de Anúncios</h2>
+            <p>Respeitamos sua escolha de usar bloqueadores de anúncios. No entanto, pedimos que considere desativá-los em nosso site, pois os anúncios são nossa principal fonte de receita e nos permitem continuar oferecendo conteúdo gratuito e de qualidade.</p>
+
+            <h2>9. Seus Direitos</h2>
+            <p>Você tem o direito de:</p>
+            <ul>
+                <li>Optar por não receber anúncios personalizados</li>
+                <li>Limpar cookies do seu navegador a qualquer momento</li>
+                <li>Usar bloqueadores de anúncios</li>
+                <li>Solicitar informações sobre dados coletados</li>
+            </ul>
+
+            <h2>10. Conformidade Legal</h2>
+            <p>Nossa política de anúncios está em conformidade com:</p>
+            <ul>
+                <li>Lei Geral de Proteção de Dados (LGPD) - Brasil</li>
+                <li>General Data Protection Regulation (GDPR) - União Europeia</li>
+                <li>California Consumer Privacy Act (CCPA) - Estados Unidos</li>
+            </ul>
+
+            <h2>11. Relatório de Anúncios Inadequados</h2>
+            <p>Se você encontrar um anúncio inadequado ou ofensivo em nosso site, por favor nos informe imediatamente através do nosso <a href="contact.html" style="color: #667eea;">formulário de contato</a>. Investigaremos e tomaremos as medidas apropriadas.</p>
+
+            <h2>12. Alterações nesta Política</h2>
+            <p>Podemos atualizar esta Política de Anúncios periodicamente. Recomendamos que você revise esta página regularmente para se manter informado sobre como utilizamos anúncios em nosso site.</p>
+
+            <h2>13. Contato</h2>
+            <p>Se você tiver dúvidas sobre nossa Política de Anúncios, entre em contato conosco:</p>
+            <ul>
+                <li>Email: contato@TechBlog.com</li>
+                <li>Formulário: <a href="contact.html" style="color: #667eea;">Página de Contato</a></li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>Agradecemos sua compreensão!</strong> Os anúncios nos permitem manter este blog gratuito e continuar produzindo conteúdo de qualidade para você.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre</h3>
+                <p>TechBlog - Seu destino para conteúdo de qualidade sobre tecnologia, programação e design.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="technology.html">Tecnologia</a></li>
+                    <li><a href="programming.html">Programação</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li><a href="contact.html">Contato</a></li>
+                    <li><a href="ads-policy.html">Política de Anúncios</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Categorias</h3>
+                <ul>
+                    <li><a href="technology.html">Tecnologia</a></li>
+                    <li><a href="programming.html">Programação</a></li>
+                    <li><a href="design.html">Design</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TechBlog. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
